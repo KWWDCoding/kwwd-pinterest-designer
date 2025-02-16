@@ -1,9 +1,11 @@
 <?php
 /**
  * Plugin Name: KWWD Pinterest Designer
- * Description: Create a Pinterest Image On The Fly
- * Version: 1.0
- * Author: Katy Whitton
+ * Description: Create a Pinterest image dynamically and upload it to the Media Library
+ * Plugin URI: https://github.com/KWWDCoding/kwwd-pinterest-designer
+ * Version: 1.0.1
+ * Author: KWWD
+ * Author URI: https://www.kwwd.co.uk
  */
 
 // Prevent direct access
@@ -1151,5 +1153,14 @@ function kwwd_pinterest_designer_handle_overlay_upload() {
         echo '<div class="error"><p>Image upload failed.</p></div>';
     }
 }
+
+/************************************************
+ ** Github Update Code
+ ***********************************************/
+ 
+if (is_admin()) {
+    require_once plugin_dir_path(__FILE__) . 'github-updater.php';
+    new GitHub_Plugin_Updater(__FILE__, 'KWWDCoding', 'kwwd-pinterest-designer');
+} 
 
 ?>
